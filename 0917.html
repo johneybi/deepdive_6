@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button UI Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .button-container {
+        display: flex;
+        gap: 40px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 160px;
+            height: 56px;
+            padding: 15px 30px;
+            border: 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10rem;
+            transition: all 0.02s;
+            font-weight: bold;
+            cursor: pointer;
+            color: rgb(37, 37, 37);
+            z-index: 0;
+            box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .button:hover {
+            background: rgb(193, 228, 248);
+            color: rgb(33, 0, 85);
+        }
+
+        .button:active {
+            transform: scale(0.97);
+        }
+
+        .button-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hoverEffect {
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .hoverEffect div {
+            background: rgb(222, 0, 75);
+            background: linear-gradient(
+                90deg,
+                rgba(222, 0, 75, 1) 0%,
+                rgba(191, 70, 255, 1) 49%,
+                rgba(0, 212, 255, 1) 100%
+            );
+            border-radius: 40rem;
+            width: 10rem;
+            height: 10rem;
+            transition: 0.4s;
+            filter: blur(20px);
+            animation: effect infinite 3s linear;
+            opacity: 0.5;
+        }
+
+        .button:hover .hoverEffect div {
+            width: 8rem;
+            height: 8rem;
+        }
+
+        @keyframes effect {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+         .naver-button {
+            background-color: #03c75a;
+            border: 1px solid #03a94e;
+            color: white;
+            width: 360px;
+            height: 56px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+        
+        .naver-button:hover {
+            background-color: #15ad59;
+        }
+
+        .naver-button-logo {
+            font-weight: 600;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .naver-button-text {
+            font-style: normal;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button type="button" class="naver-button">
+            <span class="naver-button-logo">NAVER</span>
+            <em class="naver-button-text">로그인</em>
+        </button>
+
+        <button type="button" class="button">
+            <span class="button-content">
+                <span>Deepdive</span>
+            </span>
+            <div class="hoverEffect">
+                <div></div>
+            </div>
+        </button>
+    </div>
+</body>
+</html>
