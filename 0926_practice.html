@@ -107,31 +107,46 @@
             margin: 0 0 1rem;
         }
 
-        .popup-container .contents {
+        .popup-container > .contents {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             color: #475569;
             margin-bottom: 1.5rem;
+            gap: 1em;
         }
 
-        .popup-container .close-popup {
-            font-family: inherit;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            padding: 0;
-            gap: 0.5rem;
-            background: none;
-            border: none;
-            color: #475569;
-            font-weight: 600;
-            cursor: pointer;
-            position: absolute;
-            right: 24px;
-            bottom: 24px;
+        .card {
+            background-color: #fff;
+            border: 1px solid hsl(210, 4%, 89%);
+            border-radius: 0.5em;
+            padding: 1em;
         }
 
-        .popup-container .close-popup i {
-            color: #952222;
-            font-size: 14px;
+        .card * {
+            margin: 0;
+        }
+
+        .card-header {
+            margin-bottom: 1em;
+        }
+
+        .card > .card-header > p {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .card-content {
+            color: #374151;
+        }
+
+        .second + .card{
+            background-color:hsl(210, 4%, 89%);
+        }
+
+        section > span {
+            font-size: 1rem;
+            color: #374151;
         }
 
         @media (max-width: 972px) {
@@ -475,37 +490,64 @@
     </div>
 
     <section class="popup-container">
-        <h2>Setting</h2>
         <div class="contents">
-            이곳은 설정화면입니다.
-        </div>
+            <div class="card" id="profile-card">
+                <div class="card-header">
+                    <h3>ABC</h3>
+                    <p>defg</p>
+                </div>
+                <div class="card-content">
+                    <p>xyz</p>
+                </div>
+            </div>
 
-        <button type="button" class="close-popup">
-            <span>팝업창 닫기</span>
-            <i class="fa-solid fa-xmark"></i>
-        </button>
+            <div class="card">
+                <div class="card-header">
+                    <h3>ABC</h3>
+                    <p>defg</p>
+                </div>
+                <div class="card-content">
+                    <p>defg</p>
+                </div>
+                <div class="card-footer">
+                </div>
+            </div>
+
+            <div class="card second">
+                <div class="card-header">
+                    <h3>ABC</h3>
+                    <p>defg</p>
+                </div>
+                <div class="card-content">
+                    <p>xyz</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>ABC</h3>
+                    <p>xyz</p>
+                </div>
+                <div class="card-content">
+                    <p>ABC</p>
+                </div>
+            </div>
+        </div>
+        <span>This is setting</span>
+
+
     </section>
 
     <script>
         const openBtn = document.getElementById('open-popup');
         const popup = document.querySelector('.popup-container')
-        const closeBtn = document.querySelector('.close-popup')
 
         openBtn.addEventListener('click', () => {
-            if (popup.style.display === 'block') {
-                popup.style.display = 'none';
-                openBtn.classList.remove('is-active');
-            } else {
-                popup.style.display = "block"
-                openBtn.classList.add('is-active');
-            }
-        })
-
-        closeBtn.addEventListener('click', () => {
-            popup.style.display = "none"
-            openBtn.classList.remove('is-active');
-        })
-
+            const isOpen = popup.style.display === 'block';
+            const changeStatus = isOpen ? 'none' : 'block'
+            popup.style.display = changeStatus;
+            openBtn.classList.toggle('is-active', !isOpen)
+        }) 
     </script>
 </body>
 
