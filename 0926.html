@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            padding: 1rem;
+        }
+
+        .grand-parent {
+            outline: 2px solid blue;
+            width: 300px;
+        }
+
+        .grand-parent span {
+            background-color: aqua;
+        }
+
+        .grand-parent>span {
+            color: darkmagenta;
+            font-size: 1.5em;
+        }
+
+
+        .grand-parent div {
+            font-style: italic;
+        }
+
+        .parent+div {
+            background-color: bisque;
+        }
+
+        .parent {
+            outline: 2px solid green;
+        }
+
+        .child {
+            outline: 2px solid teal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grand-parent">
+        Grand parent
+        <span>span</span>
+        <div class="parent">
+            Parent
+            <div class="child">
+                Child
+            </div>
+            <div class="second-child">
+                Second-child
+                <span>span</span>
+            </div>
+        </div>
+        <div class="parent">
+            Parent
+            <div class="child">
+                Child
+            </div>
+            <div class="second-child">
+                Second-child
+                <span>span</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
