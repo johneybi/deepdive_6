@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        .container {
+            width: 70%;
+            border: 1px solid blueviolet;
+            height: 300px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .thumb {
+            width: 200px;
+            height: 300px;
+            overflow: hidden;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        .thumb img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .thumb:hover img{
+            scale: 1.2;
+            rotate: 5deg;
+
+            transform: scale(1.2) rotate(5deg)
+        }
+
+
+    </style>
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=3562"></script>
+</head>
+
+<body>
+    <div class="thumb">
+        <img src="./images/card_thumb_0.jpg">
+    </div>
+    <div class="container">
+        <p>
+            Once upon a time, in a quiet forest, a tiny squirrel dreamed of reaching the highest tree. Every morning, it
+            gathered courage, stepping higher and higher, never giving up on its dream.
+        </p>
+
+        <img src="./images/body-bg.jpg">
+        <img src="./images/ghost_n1.png">
+
+        <p>
+            In a village by the river, a little girl found a golden feather. She wondered if it belonged to a magical
+            bird. Each night, she held it close, waiting for the bird to return for it.
+        </p>
+
+        <p>
+            Far across the sea, a young fox built a boat of leaves and flowers. With stars guiding its way, it sailed
+            bravely through the night, hoping to find friends on distant, unknown shores.
+        </p>
+
+        
+    </div>
+
+    <h1>Hello World</h1>
+</body>
+
+</html>

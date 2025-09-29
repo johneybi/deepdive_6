@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+            background-color: hsl(220, 11%, 95%);
+        }
+
+        .card {
+            position: relative;
+            width: 300px;
+            height: 384px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 20px;
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        .card_bg {
+            height: 192px;
+            width: 100%;
+            background-color: rgb(68, 93, 93);
+        }
+
+        .card_avatar {
+            position: absolute;
+            width: 114px;
+            height: 114px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            top: calc(50% - 57px);
+        }
+
+        .card_avatar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .card__title {
+            margin-top: 60px;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .card__subtitle {
+            margin-top: 6px;
+            font-weight: 400;
+            font-size: 15px;
+            color: #585858;
+        }
+
+        .card__btn {
+            margin-top: 15px;
+            width: 76px;
+            height: 31px;
+            border: 2px solid rgb(68, 93, 93);
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 11px;
+            background-color: #fff;
+            color: rgb(68, 93, 93);
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .card__btn-solid {
+            background: rgb(68, 93, 93);
+            color: #FFF;
+        }
+
+        .card__btn:hover {
+            background: rgba(68, 93, 93, 0.3);
+        }
+
+        .card__btn-solid:hover {
+            background: rgb(30, 42, 42);
+        }
+
+        @font-face {
+            font-family: 'Pretendard Variable';
+            font-weight: 45 920;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/woff2/PretendardVariable.woff2') format('woff2-variations');
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="card_bg"></div>
+        <div class="card_avatar"><img src="./images/dummy_avatar.jpg"></div>
+        <div class="card__title">Card Profile</div>
+        <div class="card__subtitle">Dummy Avatar</div>
+        <div class="card__wrapper">
+            <button class="card__btn">Button</button>
+            <button class="card__btn card__btn-solid">Button</button>
+        </div>
+    </div>
+</body>
+
+</html>
