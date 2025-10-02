@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .container {
+            width: 400px;
+            outline: 1px solid blue;
+            margin: 100px auto;
+            display: flex;
+        }
+
+        .container div {
+            /*             flex-basis: 150px;
+ */
+        }
+
+        .a {
+            flex-basis: 150px;
+            /*             flex-grow: 1;
+ */
+        }
+
+        .b {
+            flex-basis: 150px;
+            order: -1;
+            /*             flex-grow: 1;
+ */
+        }
+
+        .c {
+            flex-basis: 150px;
+            flex-shrink: 0;
+            /*             flex-basis: 200px !important;
+ */
+        }
+
+        .container div:nth-child(odd) {
+            background-color: palevioletred;
+        }
+
+        .container div:nth-child(even) {
+            background-color: palegreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="./images/ghost_n1.png" class="a" />
+        <img src="./images/ghost_n2.png" class="b" />
+        <img src="./images/ghost_n3.png" class="c" />
+        <!--     <img src="./images/ghost_n4.png">
+        <img src="./images/ghost_n5.png">
+        <img src="./images/ghost_n6.png"> -->
+    </div>
+    <div class="container">
+        <div class="a">A</div>
+        <div class="b">B</div>
+        <div class="c">C</div>
+        <!--         <div>D</div>
+        <div>E</div>
+        <div>F</div> -->
+    </div>
+</body>
+
+</html>

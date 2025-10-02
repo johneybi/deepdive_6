@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <style>
+        .container {
+            width: 500px;
+            height: 300px;
+            outline: 1px solid tomato; 
+            margin: 100px auto;    
+            display: flex;
+            justify-content: space-between;
+            /* flex-direction: column; */
+            align-items: center;
+        }
+
+        .a {
+            background-color: rgb(245, 131, 207)
+        }
+        
+        .b {
+            background-color: rgb(129, 244, 139)
+        }
+        
+        .c {
+            background-color: rgb(131, 136, 231)
+        }
+
+        .btn-top {
+            width: 50px;
+            height: 50px;
+            background-color: tomato;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="btn-top">
+        TOP
+    </a>
+    <div class="container">
+        <div class="box a">AAA</div>
+        <div class="box b">BBB</div>
+        <div class="box c">CCC</div>
+    </div>
+    <div class="container">
+        <span class="box a">AAA</span>
+        <span class="box b">BBB</span>
+        <span class="box c">CCC</span>
+    </div>
+</body>
+</html>
