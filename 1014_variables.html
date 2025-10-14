@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1014_variables.html</title>
+</head>
+<link rel="stylesheet" href="https://use.typekit.net/dcj5tyi.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" />
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" />
+
+<style>
+    :root {
+        --color-red: hsla(340, 100%, 76%, 1);
+        --color-purple: hsla(242, 100%, 70%, 1);
+        --color-orange: hsla(28, 100%, 74%, 1);
+
+        --font-base: 'Wanted Sans Variable',
+            -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+            'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+            'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+            sans-serif;
+
+        --font-eng: azo-sans-web, 'Wanted Sans Variable',
+            -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+            'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+            'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+            sans-serif;
+
+        --fancy-background:
+            radial-gradient(at 40% 20%, hsla(28, 100%, 74%, 1) 0px, transparent 50%),
+            radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
+            radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
+            radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 1) 0px, transparent 50%),
+            radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
+            radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 50%),
+            radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
+        --fancy-background-color: hsla(0, 100%, 50%, 1);
+
+    }
+
+    body {
+        display: flex;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: var(--fancy-background-color);
+        background-image: var(--fancy-background);
+    }
+
+</style>
+
+<body>
+    <div class="box">Hello world</div>
+    <script>
+        const box = document.querySelector('.box');
+        box.style.color = 'white';
+        box.style.fontFamily = 'var(--font-base)';
+    </script>
+</body>
+
+</html>
