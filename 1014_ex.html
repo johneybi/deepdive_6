@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://use.typekit.net/dcj5tyi.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
+    <link rel="preload" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" />
+
+    <style>
+        :root {
+            --color-text: #333;
+            --text-large: 1.2rem;
+            --radius-s: 8px;
+            --font-base: 'Wanted Sans Variable',
+                -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+                'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+                'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+                sans-serif;
+
+            --font-eng: azo-sans-web, 'Wanted Sans Variable',
+                -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+                'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+                'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+                sans-serif;
+
+            --fancy-background:
+                linear-gradient(270deg, #85c8e8, #e78cce, #f4cedd);
+            --fancy-background-color: rgb(209, 165, 165);
+
+
+            --box-shadow: inset 0px 0px 16px 5px #ffffff;
+            --color-body: #dfdfdf;
+        }
+
+        body {
+            display: flex;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: var(--color-body);
+        }
+
+        button {
+            background-color: var(--fancy-background-color);
+            background-image: var(--fancy-background);
+            border: none;
+            height: 60px;
+            padding: 0 2rem;
+            font-size: var(--text-large);
+            border-radius: var(--radius-s);
+            color: var(--color-text);
+            font-family: var(--font-base);
+            font-weight: 300;
+            cursor: pointer;
+            box-shadow: var(--box-shadow);
+
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" id="toggle">
+        Dark Mode
+    </button>
+
+    <script>
+        const btn = document.getElementById('toggle')
+        let isDark = false;
+
+        btn.addEventListener('click', () => {
+            isDark = !isDark
+            console.log('isDark : ', isDark)
+            document.documentElement.style.setProperty('--color-body', isDark ? '#333' : '#dfdfdf')
+            document.documentElement.style.setProperty('--color-text', isDark ? '#fff' : '#333')
+            document.documentElement.style.setProperty('--fancy-background', isDark ?
+                'linear-gradient(270deg, #3b5967, #623957, #715761)' : 'linear-gradient(270deg, #85c8e8, #e78cce, #f4cedd)');
+            document.documentElement.style.setProperty('--fancy-background-color', isDark ?
+                'rgb(94, 66, 66)' : 'rgb(209, 165, 165)');
+            btn.style.fontWeight = isDark ? '600' : '400';
+        })
+    </script>
+</body>
+
+</html>
