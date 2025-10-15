@@ -219,12 +219,9 @@
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const header = document.querySelector('.main_header');
-
-            window.addEventListener('scroll', () => {
-                header.classList.toggle('scrolled', window.scrollY > 720);
-            });
+        const header = document.querySelector('.main_header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 720);
         });
     </script>
 </body>
