@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빽틱기호 사용법</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
+    <link rel="preload" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" />
+
+    <style>
+        body {
+            font-family: 'Wanted Sans Variable';
+        }
+    </style>
+
+</head>
+
+<body class=" bg-slate-50">
+
+    <!-- <h1>Hello World</h1> -->
+    <div class="flex items-center justify-center mt-16">
+        <div class="inline-flex items-center gap-3 bg-white rounded-xl shadow-lg p-2">
+            <button
+                class="w-10 h-10 rounded-lg bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 text-xl font-medium flex items-center justify-center transition-all duration-150 leading-none pb-0.5"
+                type="button" id="btn-minus">-</button>
+            <p class="min-w-12 px-3 text-center text-xl font-semibold text-slate-800" id="num">0</p>
+            <button
+                class="w-10 h-10 rounded-lg bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 text-xl font-medium flex items-center justify-center transition-all duration-150 leading-none pb-0.5"
+                type="button" id="btn-plus">+</button>
+        </div>
+    </div>
+    <script>
+        const a = 'javascript'
+        const b = 'html'
+        let count = 0
+
+        // const result = a + '는 ' + b + '보다 어렵다, 현재 숫자는 ' + count + ' 이다'
+
+        const result = `${a}는 ${b}보다 어렵다, 현재 카운트는 ${count}이다.`
+        console.log(result)
+
+        const decrease = document.getElementById('btn-minus')
+        const increase = document.getElementById('btn-plus')
+        const num = document.getElementById('num')
+
+        decrease.addEventListener('click', () => {
+            count = count - 1;
+            // console.log(count)
+            num.textContent = count;
+        })
+
+        increase.addEventListener('click', () => {
+            count = count + 1;
+            // console.log(count)
+            num.textContent = count;
+        })
+
+
+
+    </script>
+</body>
+
+</html>
