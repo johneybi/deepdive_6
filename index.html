@@ -198,7 +198,7 @@
             border-top: 1px solid #f1f3f4;
         }
         
-        .file-date {
+        .file-size {
             font-size: 0.75em;
             color: #868e96;
             margin-top: 4px;
@@ -225,7 +225,7 @@
             <div class="sort-options">
                 <button class="sort-btn active" onclick="sortFiles('name')">이름순</button>
                 <button class="sort-btn" onclick="sortFiles('directory')">폴더별</button>
-                <button class="sort-btn" onclick="sortFiles('date')">날짜별</button>
+                <button class="sort-btn" onclick="sortFiles('size')">크기별</button>
             </div>
             
             <div id="fileList">
@@ -297,41 +297,13 @@
                             directory,
                             isIndexFile,
                             displayName: directory ? `${fileName} (${directory})` : fileName,
-                            lastModified: new Date(file.git_url ? await getFileCommitDate(owner, repo, file.path) : Date.now())
+                            fileSize: file.size || 0
                         };
                     });
-                
-                // 병렬로 날짜 정보 가져오기
-                await Promise.all(currentFiles.map(async (file) => {
-                    try {
-                        file.lastModified = new Date(await getFileCommitDate(currentOwner, currentRepo, file.path));
-                    } catch (error) {
-                        file.lastModified = new Date(0); // 오류 시 기본값
-                    }
-                }));
                 
                 sortFiles(currentSort);
             } catch (error) {
                 showError('파일을 불러오는데 실패했습니다: ' + error.message);
-            }
-        }
-
-        async function getFileCommitDate(owner, repo, path) {
-            try {
-                const url = `https://api.github.com/repos/${owner}/${repo}/commits?path=${encodeURIComponent(path)}&per_page=1`;
-                const response = await fetch(url);
-                
-                if (!response.ok) {
-                    throw new Error('Commit 정보를 가져올 수 없습니다');
-                }
-                
-                const commits = await response.json();
-                if (commits.length > 0) {
-                    return commits[0].commit.committer.date;
-                }
-                return new Date(0).toISOString();
-            } catch (error) {
-                return new Date(0).toISOString();
             }
         }
 
@@ -359,12 +331,23 @@
             return htmlFiles;
         }
 
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
         function sortFiles(type) {
             currentSort = type;
             
             // 정렬 버튼 활성화 상태 변경
             document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`[onclick="sortFiles('${type}')"]`).classList.add('active');
+            const activeBtn = Array.from(document.querySelectorAll('.sort-btn')).find(btn => 
+                btn.onclick.toString().includes(`sortFiles('${type}')`)
+            );
+            if (activeBtn) activeBtn.classList.add('active');
             
             let sortedFiles = [...currentFiles];
             
@@ -380,8 +363,8 @@
                         return a.fileName.localeCompare(b.fileName);
                     });
                     break;
-                case 'date':
-                    sortedFiles.sort((a, b) => new Date(b.lastModified) - new Date(a.lastModified));
+                case 'size':
+                    sortedFiles.sort((a, b) => (b.fileSize || 0) - (a.fileSize || 0));
                     break;
             }
             
@@ -393,7 +376,7 @@
             const baseUrl = `https://${currentOwner}.github.io/${currentRepo}`;
             
             if (files.length === 0) {
-                fileListDiv.innerHTML = '<div class="sort-options"><button class="sort-btn active" onclick="sortFiles(\'name\')">이름순</button><button class="sort-btn" onclick="sortFiles(\'directory\')">폴더별</button><button class="sort-btn" onclick="sortFiles(\'date\')">날짜별</button></div><p style="text-align:center;color:#6c757d;">표시할 HTML 파일이 없습니다.</p>';
+                fileListDiv.innerHTML = '<p style="text-align:center;color:#6c757d;">표시할 HTML 파일이 없습니다.</p>';
                 return;
             }
             
@@ -424,9 +407,9 @@
                 directory.className = `file-directory ${file.isIndexFile ? 'index-dir' : ''}`;
                 directory.textContent = file.directory || '루트 폴더';
                 
-                const date = document.createElement('div');
-                date.className = 'file-date';
-                date.textContent = `수정일: ${file.lastModified.toLocaleDateString('ko-KR')}`;
+                const size = document.createElement('div');
+                size.className = 'file-size';
+                size.textContent = `크기: ${formatFileSize(file.fileSize)}`;
                 
                 const path = document.createElement('div');
                 path.className = 'file-path';
@@ -434,7 +417,7 @@
                 
                 info.appendChild(name);
                 info.appendChild(directory);
-                info.appendChild(date);
+                info.appendChild(size);
                 
                 header.appendChild(icon);
                 header.appendChild(info);
@@ -444,7 +427,7 @@
                 grid.appendChild(card);
             });
             
-            // 기존 내용을 지우고 정렬 버튼과 그리드만 추가
+            // 기존 내용을 지우고 그리드만 추가
             fileListDiv.innerHTML = '';
             fileListDiv.appendChild(grid);
             
@@ -457,7 +440,7 @@
 
         function showError(message) {
             const fileListDiv = document.getElementById('fileList');
-            fileListDiv.innerHTML = `<div class="sort-options"><button class="sort-btn active" onclick="sortFiles('name')">이름순</button><button class="sort-btn" onclick="sortFiles('directory')">폴더별</button><button class="sort-btn" onclick="sortFiles('date')">날짜별</button></div><div class="error"><strong>오류:</strong> ${message}</div>`;
+            fileListDiv.innerHTML = `<div class="error"><strong>오류:</strong> ${message}</div>`;
         }
 
         // 페이지 로드 시 자동 실행
