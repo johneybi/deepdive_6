@@ -74,93 +74,6 @@
             margin: 20px 0;
         }
         
-        .file-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .file-card {
-            background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 12px;
-            padding: 20px;
-            transition: all 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        
-        .file-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-            border-color: #667eea;
-        }
-        
-        .file-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .file-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-        
-        .file-info {
-            flex: 1;
-            min-width: 0;
-        }
-        
-        .file-name {
-            font-weight: 600;
-            font-size: 1.1em;
-            color: #212529;
-            margin-bottom: 4px;
-            word-break: break-word;
-        }
-        
-        .file-directory {
-            font-size: 0.85em;
-            color: #6c757d;
-            font-family: 'Courier New', monospace;
-            word-break: break-all;
-            background: #f8f9fa;
-            padding: 2px 6px;
-            border-radius: 4px;
-            display: inline-block;
-        }
-        
-        .file-path {
-            font-size: 0.8em;
-            color: #868e96;
-            font-family: 'Courier New', monospace;
-            word-break: break-all;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid #f1f3f4;
-        }
-        
-        .stats {
-            background: #f8f9fa;
-            padding: 15px 40px;
-            border-top: 1px solid #e9ecef;
-            color: #6c757d;
-            text-align: center;
-            font-size: 0.9em;
-        }
-
         /* 정렬 옵션 */
         .sort-options {
             margin-bottom: 20px;
@@ -188,6 +101,117 @@
             color: white;
             border-color: #667eea;
         }
+        
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .file-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .file-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+        
+        .file-card.index-file {
+            border-color: #28a745;
+        }
+        
+        .file-card.index-file:hover {
+            border-color: #28a745;
+            box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+        }
+        
+        .file-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .file-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .file-icon.index-icon {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+        
+        .file-info {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .file-name {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #212529;
+            margin-bottom: 4px;
+            word-break: break-word;
+        }
+        
+        .file-directory {
+            font-size: 0.85em;
+            color: #6c757d;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        
+        .file-directory.index-dir {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .file-path {
+            font-size: 0.8em;
+            color: #868e96;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #f1f3f4;
+        }
+        
+        .file-date {
+            font-size: 0.75em;
+            color: #868e96;
+            margin-top: 4px;
+        }
+        
+        .stats {
+            background: #f8f9fa;
+            padding: 15px 40px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            text-align: center;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -200,8 +224,8 @@
         <div class="content">
             <div class="sort-options">
                 <button class="sort-btn active" onclick="sortFiles('name')">이름순</button>
-                <button class="sort-btn" onclick="sortFiles('path')">경로순</button>
                 <button class="sort-btn" onclick="sortFiles('directory')">폴더별</button>
+                <button class="sort-btn" onclick="sortFiles('date')">날짜별</button>
             </div>
             
             <div id="fileList">
@@ -258,25 +282,56 @@
                     return;
                 }
                 
-                // index.html 제외 및 파일 정보 보강
+                // 루트의 index.html만 제외하고 하위 폴더의 index.html은 포함
                 currentFiles = files
-                    .filter(f => !f.path.endsWith('index.html'))
+                    .filter(f => f.path !== 'index.html') // 루트의 index.html만 제외
                     .map(file => {
                         const pathParts = file.path.split('/');
                         const directory = pathParts.length > 1 ? pathParts.slice(0, -1).join('/') : '';
                         const fileName = pathParts[pathParts.length - 1];
+                        const isIndexFile = fileName === 'index.html';
                         
                         return {
                             ...file,
                             fileName,
                             directory,
-                            displayName: directory ? `${fileName} (${directory})` : fileName
+                            isIndexFile,
+                            displayName: directory ? `${fileName} (${directory})` : fileName,
+                            lastModified: new Date(file.git_url ? await getFileCommitDate(owner, repo, file.path) : Date.now())
                         };
                     });
+                
+                // 병렬로 날짜 정보 가져오기
+                await Promise.all(currentFiles.map(async (file) => {
+                    try {
+                        file.lastModified = new Date(await getFileCommitDate(currentOwner, currentRepo, file.path));
+                    } catch (error) {
+                        file.lastModified = new Date(0); // 오류 시 기본값
+                    }
+                }));
                 
                 sortFiles(currentSort);
             } catch (error) {
                 showError('파일을 불러오는데 실패했습니다: ' + error.message);
+            }
+        }
+
+        async function getFileCommitDate(owner, repo, path) {
+            try {
+                const url = `https://api.github.com/repos/${owner}/${repo}/commits?path=${encodeURIComponent(path)}&per_page=1`;
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    throw new Error('Commit 정보를 가져올 수 없습니다');
+                }
+                
+                const commits = await response.json();
+                if (commits.length > 0) {
+                    return commits[0].commit.committer.date;
+                }
+                return new Date(0).toISOString();
+            } catch (error) {
+                return new Date(0).toISOString();
             }
         }
 
@@ -309,16 +364,13 @@
             
             // 정렬 버튼 활성화 상태 변경
             document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
-            event?.target?.classList.add('active');
+            document.querySelector(`[onclick="sortFiles('${type}')"]`).classList.add('active');
             
             let sortedFiles = [...currentFiles];
             
             switch(type) {
                 case 'name':
                     sortedFiles.sort((a, b) => a.fileName.localeCompare(b.fileName));
-                    break;
-                case 'path':
-                    sortedFiles.sort((a, b) => a.path.localeCompare(b.path));
                     break;
                 case 'directory':
                     sortedFiles.sort((a, b) => {
@@ -327,6 +379,9 @@
                         }
                         return a.fileName.localeCompare(b.fileName);
                     });
+                    break;
+                case 'date':
+                    sortedFiles.sort((a, b) => new Date(b.lastModified) - new Date(a.lastModified));
                     break;
             }
             
@@ -338,25 +393,16 @@
             const baseUrl = `https://${currentOwner}.github.io/${currentRepo}`;
             
             if (files.length === 0) {
-                fileListDiv.innerHTML = '<p style="text-align:center;color:#6c757d;">표시할 HTML 파일이 없습니다.</p>';
+                fileListDiv.innerHTML = '<div class="sort-options"><button class="sort-btn active" onclick="sortFiles(\'name\')">이름순</button><button class="sort-btn" onclick="sortFiles(\'directory\')">폴더별</button><button class="sort-btn" onclick="sortFiles(\'date\')">날짜별</button></div><p style="text-align:center;color:#6c757d;">표시할 HTML 파일이 없습니다.</p>';
                 return;
             }
-            
-            // 정렬 옵션 다시 추가
-            const sortOptions = `
-                <div class="sort-options">
-                    <button class="sort-btn ${currentSort === 'name' ? 'active' : ''}" onclick="sortFiles('name')">이름순</button>
-                    <button class="sort-btn ${currentSort === 'path' ? 'active' : ''}" onclick="sortFiles('path')">경로순</button>
-                    <button class="sort-btn ${currentSort === 'directory' ? 'active' : ''}" onclick="sortFiles('directory')">폴더별</button>
-                </div>
-            `;
             
             const grid = document.createElement('div');
             grid.className = 'file-grid';
             
             files.forEach(file => {
                 const card = document.createElement('a');
-                card.className = 'file-card';
+                card.className = `file-card ${file.isIndexFile ? 'index-file' : ''}`;
                 card.href = `${baseUrl}/${file.path}`;
                 card.target = '_blank';
                 
@@ -364,8 +410,8 @@
                 header.className = 'file-header';
                 
                 const icon = document.createElement('div');
-                icon.className = 'file-icon';
-                icon.textContent = '📄';
+                icon.className = `file-icon ${file.isIndexFile ? 'index-icon' : ''}`;
+                icon.textContent = file.isIndexFile ? '🏠' : '📄';
                 
                 const info = document.createElement('div');
                 info.className = 'file-info';
@@ -375,8 +421,12 @@
                 name.textContent = file.fileName;
                 
                 const directory = document.createElement('div');
-                directory.className = 'file-directory';
+                directory.className = `file-directory ${file.isIndexFile ? 'index-dir' : ''}`;
                 directory.textContent = file.directory || '루트 폴더';
+                
+                const date = document.createElement('div');
+                date.className = 'file-date';
+                date.textContent = `수정일: ${file.lastModified.toLocaleDateString('ko-KR')}`;
                 
                 const path = document.createElement('div');
                 path.className = 'file-path';
@@ -384,6 +434,7 @@
                 
                 info.appendChild(name);
                 info.appendChild(directory);
+                info.appendChild(date);
                 
                 header.appendChild(icon);
                 header.appendChild(info);
@@ -393,16 +444,20 @@
                 grid.appendChild(card);
             });
             
-            fileListDiv.innerHTML = sortOptions;
+            // 기존 내용을 지우고 정렬 버튼과 그리드만 추가
+            fileListDiv.innerHTML = '';
             fileListDiv.appendChild(grid);
             
+            const indexFileCount = files.filter(f => f.isIndexFile).length;
+            const regularFileCount = files.length - indexFileCount;
+            
             document.getElementById('stats').textContent = 
-                `총 ${files.length}개의 HTML 파일을 찾았습니다.`;
+                `총 ${files.length}개의 HTML 파일을 찾았습니다. (일반 파일: ${regularFileCount}개, 하위 폴더 index: ${indexFileCount}개)`;
         }
 
         function showError(message) {
             const fileListDiv = document.getElementById('fileList');
-            fileListDiv.innerHTML = `<div class="error"><strong>오류:</strong> ${message}</div>`;
+            fileListDiv.innerHTML = `<div class="sort-options"><button class="sort-btn active" onclick="sortFiles('name')">이름순</button><button class="sort-btn" onclick="sortFiles('directory')">폴더별</button><button class="sort-btn" onclick="sortFiles('date')">날짜별</button></div><div class="error"><strong>오류:</strong> ${message}</div>`;
         }
 
         // 페이지 로드 시 자동 실행
