@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
+    <link rel="preload" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" />
+
+    <style>
+        :root {
+            --color-primary: #6a59c6;
+            --color-secondary: #a195e7;
+            --color-primary-shadow: rgba(31, 15, 60, 0.3);
+            --color-bright-shadow: rgba(179, 164, 206, 0.3);
+        }
+
+        body {
+            background: linear-gradient(to top right, var(--color-primary), var(--color-secondary));
+            min-height: 100vh;
+
+            font-family: 'Wanted Sans Variable';
+
+        }
+
+        .container {
+            background-color: #fff;
+            box-shadow: 20px 20px 60px var(--color-primary-shadow),
+                -20px -20px 60px var(--color-bright-shadow);
+            border: 1px solid var(--color-primary);
+            border-radius: 36px;
+            padding: 2em;
+            width: 450px;
+            margin: 100px auto;
+        }
+
+        p {
+            cursor: pointer;
+            margin-bottom: 16px;
+        }
+
+        p::before {
+            content: '-';
+            margin-right: 10px;
+        }
+
+        p:hover {
+            color: var(--color-primary)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p class="a1">Grape</p>
+
+        <div>
+            당신이 선택하신 과일은 <span id="result">OOO</span>입니다.
+        </div>
+    </div>
+
+    <script>
+        const a1 = document.querySelector('.a1')
+        const result = document.getElementById('result')
+
+        function updateText() {
+            result.textContent = 'Grape';
+        }
+
+        a1.addEventListener('click', (event) => {
+            result.textContent = event.target.textContent;
+            // updateText();
+        });
+
+
+    </script>
+</body>
+
+</html>
