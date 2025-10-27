@@ -20,19 +20,20 @@
 </head>
 
 <body class="bg-gray-700">
-    <div class="relative drop-shadow-xl w-3/4 h-64 overflow-hidden rounded-xl bg-[#3d3c3d] mx-auto mt-16">
-        <div
-            class="absolute px-6 py-4 text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-[#323132]">
-            <p class="font-semibold text-2xl mb-4" id="a">Hello</p>
-            <input
-                class="px-4 py-2 me-2 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
-                type="text" id="b" placeholder="이름을 입력하세요"> <!--value="world"-->
-            <button
-                class="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-200 font-medium"
-                type="button" id="btn">이름출력</button>
+<div class="w-fit mx-auto mt-16">
+    <div class="relative drop-shadow-xl overflow-hidden rounded-xl bg-[#3d3c3d] p-0.5">
+        <div class="flex flex-col px-7 pt-4 pb-6 text-white bg-[#323132] rounded-xl relative z-[1] opacity-90">
+            <p class="font-semibold text-lg md:text-2xl mb-3 md:mb-4" id="a">Hello</p>
+            <div class="flex gap-2 md:gap-3">
+                <input class="px-3 md:px-4 py-2 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-40 md:w-64"
+                       type="text" id="b" placeholder="이름 입력">
+                <button class="px-4 md:px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 w-fit text-sm md:text-base"
+                        type="button" id="btn">출력</button>
+            </div>
         </div>
-        <div class="absolute w-56 h-48 bg-white blur-[50px] -left-1/2 -top-1/2"></div>
+        <div class="absolute w-3/4 h-48 -left-1/2 -top-3/4 bg-white blur-[50px] z-0"></div>
     </div>
+</div>
     <script>
         const p = document.getElementById('a')
         const input = document.getElementById('b')
