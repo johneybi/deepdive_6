@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
+    <link rel="preload" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" />
+    <style>
+        body {
+            font-family: 'Wanted Sans Variable';
+        }
+    </style>
+</head>
+
+<body class="bg-gray-700">
+    <div class="relative drop-shadow-xl w-3/4 h-64 overflow-hidden rounded-xl bg-[#3d3c3d] mx-auto mt-16">
+        <div
+            class="absolute px-6 py-4 text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-[#323132]">
+            <p class="font-semibold text-2xl mb-4" id="a">Hello</p>
+            <input
+                class="px-4 py-2 me-2 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                type="text" id="b" placeholder="이름을 입력하세요"> <!--value="world"-->
+            <button
+                class="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-200 font-medium"
+                type="button" id="btn">이름출력</button>
+        </div>
+        <div class="absolute w-56 h-48 bg-white blur-[50px] -left-1/2 -top-1/2"></div>
+    </div>
+    <script>
+        const p = document.getElementById('a')
+        const input = document.getElementById('b')
+        const btn = document.getElementById('btn')
+
+        btn.addEventListener('click', () => {
+            const name = input.value;
+            p.textContent = `your name is ${name}`
+            console.log(`data type is ${typeof name}`)
+            console.log(name + 3)
+            console.log(Number(name) + 3)
+            console.log(+name + 3)
+        })
+    </script>
+</body>
+
+</html>
